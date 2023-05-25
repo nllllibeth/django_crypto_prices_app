@@ -1,4 +1,4 @@
-#Django Crypto Prices App
+# Django Crypto Prices App
 
 <!-- Live Demo can be viewed at https://www.buildproshop.com/ -->
 
