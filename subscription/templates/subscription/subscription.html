@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+{% load static%}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/subscription.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap">
+
+<div class="grid_image">
+    <div></div>
+    <div class="grid-rows-2 demo">
+        <img class="phone2" src="{% static 'images/crypto_bot_demo.gif'%}"> 
+        <p>Made by <a href="https://github.com/nllllibeth">Liza Sheina </a></p>
+    </div>
+    <div>
+        <a href="https://t.me/currency_nllllibeth_bot">
+            <button type="button" class="btn">Subscribe</button>
+        </a>
+        <div class="pattern">
+            <img src="{% static 'images/blob.svg'%}">
+            <img src="{% static 'images/blob2.svg'%}">
+        </div>
+        <div class="description">
+            <h3>Introducing the Telegram CryptoBot, a cutting-edge bot designed to deliver real-time cryptocurrency data and dynamic price charts to users.</h3>
+            <p> Powered by Aiogram and the Binance API, this innovative tool provides users with valuable insights into the ever-changing world of cryptocurrencies. With the Telegram CryptoBot, users can easily access essential information about their favorite cryptocurrencies. Whether you're an avid investor or simply curious about the latest market trends, this bot has you covered.</p>
+            <p>Upon selecting a specific cryptocurrency, the bot offers a range of functions:  </p>
+            <ul>
+                <li><span>Get price</span> - Get current price for selected symbol in USDT </li>
+                <li><span>Get average price</span> - Get average price for selected symbol in USDT </li>
+                <li><span>Get chart</span> - Show a graph with price dynamics for selected symbol in USDT for last week </li>
+            </ul>
+        </div>
+    </div>
+    <div class="grid-cols-2">
+        <a href="https://t.me/currency_nllllibeth_bot">
+            <button type="button" class="btn_block">Try it Now</button>
+        </a>
+    </div>
+ 
+</div>
+
+{% endblock content %}

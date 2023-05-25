@@ -1,0 +1,21 @@
+
+{% load static %}
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/main.css' %}">
+
+
+<div class="navbar">
+    <ul>
+        <li><a href="{% url 'currencies' %}">Prices</a></li>
+        <li><a href="{% url 'favourite_list' %}">Favourites</a></li>
+        <li><a href="/" id="logo_navbar"><img src="{% static 'images/logo4.svg' %}"></a></li>
+        <li><a href="{% url 'subscription_page' %}">Subscribe</a></li>
+        {% if request.user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+        {% endif %}
+
+    </ul>
+</div>
+
+

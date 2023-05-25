@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+
+{% load static%}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/single.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/770533689e.js" crossorigin="anonymous"></script>
+
+<div class="currency_container">
+    <div class="item1">
+        <a id="logo" href="/"><img alt="" src="/static/images/{{currency.symbol}}_logo.png"></a>
+    </div>
+    <div class="item2">
+        <h1 id="name"> {{currency.name}} </h1>
+    </div>
+    <div class="item3">
+        <form action="{% url 'favourite_currency' currency.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit", name="currency_id", value="{{currency.id}}">
+                {% if is_favourite %}
+                <i class="fa-solid fa-heart fa-2xl" style="color: rgba(240, 123, 28);"></i>
+                {% else %}
+                <i id='regular_heart' class="fa-regular fa-heart fa-2xl" style="color: rgba(240, 123, 28);"></i>
+                {% endif %}
+            </button>
+        </form>
+    </div>
+    <div class="item4">
+        <div class="info">
+            <p class="info_name">24h Low</p>
+            <p class="info_price">$ {{currency.last_day_lowest_price}}</p>
+            <p class="info_name">24h High</p>
+            <p class="info_price">$ {{currency.last_day_highest_price}}</p>
+            <p class="info_name">24h Open</p>
+            <p class="info_price">$ {{currency.last_day_open_price}}</p> 
+        </div>
+    </div>
+    <div class="item5">
+        <p id="symbol">{{currency.symbol}}</p>
+    </div>
+    <div class="item6"></div>
+    <div class="item7"></div>
+    <div class="item8">
+        <h2 class="current_price">$ {{currency.current_price}}</h2>
+    </div>
+    <div class="item9">
+        {% if currency.percent_change >= 0%}
+        <button id="positive_button">{{currency.percent_change}}%</button>
+        {% else %}
+        <button id="negative_button">{{currency.percent_change}}%</button>
+        {% endif %}
+    </div>
+    <div class="item10">
+        <div id="description">
+            <h3 id="about"> About {{currency.name}} : </h3>
+            <p>The <ins>{{currency.name}}</ins> price is <ins> $ {{currency.current_price}}</ins> with a price change of <ins>{{currency.percent_change}}%</ins> over the past 24 hours.
+            </p>
+            <p> {{currency.description}} </p>
+        </div> 
+    </div>
+
+</div>
+{% endblock content %}

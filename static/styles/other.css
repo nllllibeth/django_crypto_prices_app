@@ -1,0 +1,38 @@
+
+<div class="col1">
+<div class="logo_class">
+    <a id="logo" href="/"><img alt="" src="/static/images/{{currency.symbol}}_logo.png"></a>
+</div>
+<div>
+    <p id="symbol">{{currency.symbol}}</p>
+</div>
+<div>
+    <h2 class="current_price">$ {{currency.current_price}}</h2>
+</div>
+<div>
+    <div id="description">
+        <h4 id="about"> About {{currency.name}} : </h4>
+        <p> {{currency.description}} </p>
+    </div> 
+</div>
+</div>
+<div class="col2">
+<h1 id="name"> {{currency.name}} </h1>
+</div>
+<div class="col3">
+<button id="button">{{currency.percent_change}}%</button>
+</div>
+<div class="col4">
+</div>
+<div class="col5">
+<div class="info"> 
+    <p id="lowest">24h Lowest Price : $ {{currency.last_day_lowest_price}}</p> 
+    <p id="highest">24h Highest Price : $ {{currency.last_day_highest_price}}</p>
+    <p id="open">24h Open Price : $ {{currency.last_day_open_price}}</p> 
+</div>
+</div>
+
+
+.currency_container div {
+    border: 1px solid purple;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoPrices</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/main.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="header">
+            {% include 'navbar.html' %}
+        </div>
+
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+            <p class="alert__messages">{{message}}</p>
+            <button class="alert__close" onclick="this.parentElement.style.display='none';">x</button>
+          </div>
+        {% endfor %}
+        {% endif %}
+
+
+        <div class="content_block">
+            {% block content %}
+            {% endblock content %}
+        </div>
+
+        <div class="footer">
+            <div class="footer_logo">
+                <a href="/" class="logo">
+                    <img src="{% static 'images/logo4.svg' %}">
+                </a>
+            </div>
+            <div class="footer_info">
+                <div class="contact">
+                    <h3>Contact me</h3>
+                    <a id="mail" href="mailto:sheina.02111@gmail.com">sheina.02111@gmail.com</a></p>
+                    <a  href="https://t.me/nllllibeth"><img src="{% static 'images/tg_logo.svg' %}"></a>
+                    <a  href="https://github.com/nllllibeth"><img src="{% static 'images/github_logo.svg' %}"></a>
+                </div>
+                <div class="about">
+                    <h3>About CryptoPrices</h3>
+                    <p>Django App that provides a user with current crypto-currency data, such as current price, lowest, highest, and open price for past 24h, using Binance API.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

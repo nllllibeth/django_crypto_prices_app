@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/main.css' %}">
+<script href="{% static 'js/main.js' %}"></script>
+
+<div class="contents">
+{% for currency in currencies %}
+{% if currency.percent_change >= 0 %}
+    <div class='content' id='positive_content' onclick='window.location.href="{% url 'currency' currency.id %}";'>
+        <div class="content_container">
+            <div class="logo">
+                <a href="/"><img alt="" src="/static/images/{{currency.symbol}}_logo.png"></a>
+            </div>
+            <div class="price">${{currency.current_price}}</div>
+            <div class="name"><a href="{% url 'currency' currency.id %}">{{currency.name}}</a></div>
+            <div><button id="positive_button">{{currency.percent_change}}%</button></div>
+            <div class="symbol">{{currency.symbol}}</div>
+        </div>
+    </div>
+{% else %}
+    <div class='content' id='negative_content' onclick='window.location.href="{% url 'currency' currency.id %}";'>
+        <div class="content_container">
+            <div class="logo">
+                <a href="/"><img alt="" src="/static/images/{{currency.symbol}}_logo.png"></a>
+            </div>
+            <div class="price">${{currency.current_price}}</div>
+            <div class="name"><a href="{% url 'currency' currency.id %}">{{currency.name}}</a></div>
+            <div><button id="negative_button">{{currency.percent_change}}%</button></div>
+            <div class="symbol">{{currency.symbol}}</div>
+        </div>
+    </div> 
+{% endif %}
+{% endfor %}
+</div>
+{% endblock content %}
+

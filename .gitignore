@@ -1,0 +1,13 @@
+.vscode/
+venv/
+.venv/
+.env
+__pycache__/
+__pycache__
+*.py[cod]
+.history
+*.pyc
+*.log
+*.db
+db.sqlite3
+py_log.log
